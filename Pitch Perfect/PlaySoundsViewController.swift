@@ -12,6 +12,7 @@ import AVFoundation
 class PlaySoundsViewController: UIViewController{
     
     var audioURL : URL!
+    var audioPlayer : AVAudioPlayer!
     
     @IBOutlet weak var snailButton: UIButton!
     @IBOutlet weak var chipmunkButton: UIButton!
@@ -25,10 +26,10 @@ class PlaySoundsViewController: UIViewController{
         super.viewDidLoad()
         do{
         print(audioURL)
-        var audioplayer = try AVAudioPlayer(contentsOf: audioURL)
+        audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
             print(1)
-            audioplayer.prepareToPlay()
-            audioplayer.play()
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
         }
         catch{
             print(error)
